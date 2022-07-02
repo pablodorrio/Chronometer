@@ -1,0 +1,100 @@
+* {
+    margin: 0%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav {
+    position: relative;
+    height: 70px;
+    background-color: gray;
+}
+
+#btn-menu {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background-color: transparent;
+    border: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#btn-dark-mode {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+#btn-menu img {
+    width: 30px;
+    height: 30px;
+}
+
+#btn-dark-mode img {
+    width: 30px;
+    height: 30px;
+}
+
+.menu {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    background-color: gray;
+    border: 1px solid black;
+    border-top: transparent;
+    border-end-end-radius: 20px;
+    visibility: hidden;
+}
+
+.chronometer-container {
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.chronometer {
+    font-size: 150px;
+    color: #000;
+}
+
+.chronometer-button-container {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.chronometer-button {
+    width: 120px;
+    height: 120px;
+    background-color: #000;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0px 50px;
+}
+
+.chronometer-button:hover {
+    border-color: #fff;
+}
+
+.dark-mode-chronometer {
+    color: #fff;
+}
+
+.dark-mode-background {
+    background-color: #35363A;
+}
+
+.dark-mode-element {
+    background-color: #161616;
+}
+
+.d-none {
+    visibility: visible;
+}
