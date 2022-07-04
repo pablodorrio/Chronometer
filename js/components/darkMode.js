@@ -6,6 +6,9 @@ export default class DarkMode {
         this.darkModeBtn = document.getElementById('dark-mode-btn')
         this.model = new Model()
         this.view = new View()
+        if (this.model.darkMode) {
+            this.darkModeOn()
+        }
         this.darkModeBtn.onclick = () => this.onClick()
     }
 
