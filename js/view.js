@@ -48,4 +48,8 @@ export default class View {
         this.changeMenuIcon()
         this.changeDarkModeIcon()
     }
+
+    showChronometer(mins, segs, cents) {
+        this.chronometer.innerText = `${mins}:${segs}:${cents}`
+    }
 }
