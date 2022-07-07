@@ -5,10 +5,13 @@ export default class Chronometer {
         this.mins = 0
         this.segs = 0
         this.cents = 0
-        this.initBtn = document.getElementById('initBtn')
+
+        this.btnContainer = document.getElementById('btn-container')
+        this.startBtn = document.getElementById('startBtn')
         this.restartBtn = document.getElementById('restartBtn')
+        this.startBtn.onclick = () => this.chonometerOn()
+
         this.view = new View()
-        this.initBtn.onclick = () => this.chonometerOn()
     }
 
     formatNumber(num) {
@@ -19,54 +22,87 @@ export default class Chronometer {
         return num
     }
 
-    showChronometer(mins, segs, cents) {
-        this.view.showChronometer(this.formatNumber(mins), 
-                                    this.formatNumber(segs), this.formatNumber(cents))
+    showChronometer() {
+        this.view.showChronometer(this.formatNumber(this.mins), 
+                                    this.formatNumber(this.segs), this.formatNumber(this.cents))
     }
 
-    interval(mins, segs, cents, interval) {
-        setInterval(() => {
-            
-        }, interval);
+    addStartBtn() {
+        const startBtn = document.createElement('button')
+        startBtn.classList.add('chronometer-button')
+        startBtn.innerText = 'Start'
+        this.startBtn = startBtn
+
+        this.btnContainer.children[1].remove()
+        this.btnContainer.appendChild(this.startBtn)
+    }
+
+    addStopBtn() {
+        const stopBtn = document.createElement('button')
+        stopBtn.classList.add('chronometer-button')
+        stopBtn.innerText = 'Stop'
+
+        this.btnContainer.children[1].remove()
+        this.btnContainer.appendChild(stopBtn)
     }
 
     chronometerOff() {
-        this.showChronometer(this.mins, this.segs, this.cents)
+        this.mins = 0
+        this.segs = 0
+        this.cents = 0
+
+        this.showChronometer()
     }
 
+    //Start, stop and restart
     chonometerOn() {
-        let chronoMins = this.mins
-        let chronoSegs = this.segs
-        let chronoCents = this.cents
-        
-        setInterval(() => {
-            chronoMins += 1
+        const i = setInterval(() => {
+            this.mins += 1
 
-            if (chronoMins === 100) {
-                chronoMins = 0
+            if (this.mins === 100) {
+                this.mins = 0
             }
 
-            this.showChronometer(chronoMins, chronoSegs, chronoCents)
+            this.showChronometer()
         }, 60000);
 
-        setInterval(() => {
-            chronoSegs += 1
+        const j = setInterval(() => {
+            this.segs += 1
 
-            if (chronoSegs === 60) {
-                chronoSegs = 0
+            if (this.segs === 60) {
+                this.segs = 0
             }
 
-            this.showChronometer(chronoMins, chronoSegs, chronoCents)
+            this.showChronometer()
         }, 1000);
 
-        setInterval(() => {
-            chronoCents += 1
+        const k = setInterval(() => {
+            this.cents += 1
 
-            if (chronoCents === 100) {
-                chronoCents = 0
+            if (this.cents === 100) {
+                this.cents = 0
             }
 
-            this.showChronometer(chronoMins, chronoSegs, chronoCents)
+            this.showChronometer()
         }, 10);
+
+        this.restartBtn.onclick = () => {
+            clearInterval(i)
+            clearInterval(j)
+            clearInterval(k)
+
+            this.chronometerOff()
+        }
+
+        this.addStopBtn()
+
+        this.btnContainer.children[1].onclick = () => {
+            clearInterval(i)
+            clearInterval(j)
+            clearInterval(k)
+
+            this.addStartBtn()
+            this.startBtn.onclick = () => this.chonometerOn()
+        }
     }
 }

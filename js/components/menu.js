@@ -3,9 +3,9 @@ import View from '../view.js'
 
 export default class Menu {
     constructor() {
-        this.btnMenu = document.getElementById('menu-btn')
         this.model = new Model()
         this.view = new View()
+        this.btnMenu = document.getElementById('menu-btn')
         this.btnMenu.onclick = () => this.onClick()
     }
 

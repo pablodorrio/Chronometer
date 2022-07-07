@@ -3,9 +3,9 @@ import View from "../view.js"
 
 export default class DarkMode {
     constructor() {
-        this.darkModeBtn = document.getElementById('dark-mode-btn')
         this.model = new Model()
         this.view = new View()
+        this.darkModeBtn = document.getElementById('dark-mode-btn')
         if (this.model.darkMode) {
             this.darkModeOn()
         }

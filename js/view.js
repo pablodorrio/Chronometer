@@ -50,6 +50,6 @@ export default class View {
     }
 
     showChronometer(mins, segs, cents) {
-        this.chronometer.innerText = `${mins}:${segs}:${cents}`
+        this.chronometer.innerText = `${mins}:${segs}.${cents}`
     }
 }
