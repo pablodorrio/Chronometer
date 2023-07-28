@@ -98,3 +98,23 @@ nav {
 .d-none {
     visibility: visible;
 }
+
+.menu a {
+    position: absolute;
+    top: 180px;
+    left: 85px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #161616;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+}
+
+.menu h6 {
+    position: absolute;
+    top: 380px;
+    left: 65px;
+}
